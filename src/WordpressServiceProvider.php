@@ -4,7 +4,6 @@ namespace RickWest\Wordpress;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use RickWest\Wordpress\Commands\WordpressCommand;
 
 class WordpressServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +16,6 @@ class WordpressServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-wordpress-api')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-wordpress-api_table')
-            ->hasCommand(WordpressCommand::class);
+            ->hasConfigFile();
     }
 }

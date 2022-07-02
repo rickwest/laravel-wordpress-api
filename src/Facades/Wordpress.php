@@ -5,7 +5,7 @@ namespace RickWest\Wordpress\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \RickWest\Wordpress\Wordpress
+ * @see \RickWest\Wordpress\SportsPress
  */
 class Wordpress extends Facade
 {
