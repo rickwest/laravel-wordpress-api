@@ -2,8 +2,8 @@
 
 namespace RickWest\Wordpress\Resources\Traits;
 
-trait HasAuthor {
-
+trait HasAuthor
+{
     /**
      * Limit result set to resources assigned to specific authors.
      *

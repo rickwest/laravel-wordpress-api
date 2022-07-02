@@ -8,5 +8,7 @@ use RickWest\Wordpress\Resources\Traits\HasSlug;
 
 class Pages extends Resource
 {
-    use HasSlug, HasDate, HasAuthor;
+    use HasSlug;
+    use HasDate;
+    use HasAuthor;
 }

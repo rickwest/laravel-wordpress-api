@@ -4,8 +4,8 @@ namespace RickWest\Wordpress\Resources\Traits;
 
 use Carbon\CarbonInterface;
 
-trait HasDate {
-
+trait HasDate
+{
     /**
      * Limit response to resources published after a given ISO8601 compliant date.
      *

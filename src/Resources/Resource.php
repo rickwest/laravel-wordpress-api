@@ -2,9 +2,9 @@
 
 namespace RickWest\Wordpress\Resources;
 
-use App\Http\Services\Wordpress\Client;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Str;
+use RickWest\Wordpress\Client;
 
 abstract class Resource
 {
@@ -106,7 +106,7 @@ abstract class Resource
             'meta' => [
                 'pages' => $successful ? (int) $response->header('X-WP-TotalPages') : 0,
                 'total' => $successful ? (int) $response->header('X-WP-Total') : 0,
-            ]
+            ],
         ];
     }
 
@@ -199,7 +199,7 @@ abstract class Resource
     /**
      * @return string
      */
-    protected function name (): string
+    protected function name(): string
     {
         return Str::lower(
             (new \ReflectionClass($this))->getShortName()

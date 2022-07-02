@@ -2,4 +2,6 @@
 
 namespace RickWest\Wordpress\Resources\SportsPress;
 
-class Events extends SportsPressResource {}
+class Events extends SportsPressResource
+{
+}
