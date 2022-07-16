@@ -18,4 +18,13 @@ class WordpressServiceProvider extends PackageServiceProvider
             ->name('laravel-wordpress-api')
             ->hasConfigFile();
     }
+
+    public function packageRegistered()
+    {
+        $this->app->singleton('wordpress', fn () => new Wordpress());
+
+        if (config('wordpress-api.sportspress.enabled')) {
+            $this->app->singleton('sportspress', fn () => new SportsPress());
+        }
+    }
 }

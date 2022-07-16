@@ -10,9 +10,9 @@ abstract class BaseWordpress
 
     protected array $resources = [];
 
-    public function __construct(Client $client)
+    public function __construct(Client $client = null)
     {
-        $this->client = $client;
+        $this->client = $client ?? new Client();
     }
 
     public function __call($name, $arguments)

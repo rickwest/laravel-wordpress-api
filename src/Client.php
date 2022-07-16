@@ -9,19 +9,19 @@ class Client
 {
     private string $baseUrl;
 
-    public function __construct(string $baseUrl)
+    public function __construct(string $baseUrl = null)
     {
-        $this->baseUrl = $baseUrl;
+        $this->baseUrl = $baseUrl ?? config('wordpress-api.url');
     }
 
     /**
      * @param string $method
      * @param string $endpoint
-     * @param array $parameters
+     * @param array $options
      * @return Response
      */
-    public function send(string $method, string $endpoint, array $parameters = []): Response
+    public function send(string $method, string $endpoint, array $options = []): Response
     {
-        return Http::send($method, $this->baseUrl.$endpoint, $parameters);
+        return Http::send($method, $this->baseUrl.$endpoint, $options);
     }
 }

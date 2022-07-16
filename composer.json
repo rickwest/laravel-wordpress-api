@@ -35,8 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "RickWest\\Wordpress\\": "src",
-            "RickWest\\Wordpress\\Database\\Factories\\": "database/factories"
+            "RickWest\\Wordpress\\": "src"
         }
     },
     "autoload-dev": {
@@ -51,7 +50,11 @@
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
     },
     "extra": {
         "laravel": {
@@ -59,7 +62,8 @@
                 "RickWest\\Wordpress\\WordpressServiceProvider"
             ],
             "aliases": {
-                "Wordpress": "SportsPress"
+                "Wordpress": "RickWest\\Wordpress\\Facades\\Wordpress",
+                "SportsPress": "RickWest\\Wordpress\\Facades\\SportsPress"
             }
         }
     },

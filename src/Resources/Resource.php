@@ -73,7 +73,7 @@ abstract class Resource
      */
     public function find(int $id, array $parameters = []): ?array
     {
-        $response = $this->send('GET', $id, array_merge($parameters, $this->globalParameters));
+        $response = $this->send('GET', $id, ['query' => array_merge($parameters, $this->globalParameters)]);
 
         return $response->successful() ? $response->json() : null;
     }
@@ -89,7 +89,9 @@ abstract class Resource
         }
 
         return $this->listResponse(
-            $this->send('GET', null, array_merge($this->globalParameters, $this->parameters))
+            $this->send('GET', null, [
+                'query' => array_merge($this->globalParameters, $this->parameters),
+            ])
         );
     }
 
@@ -113,12 +115,12 @@ abstract class Resource
     /**
      * @param string $method
      * @param int|null $id
-     * @param array $parameters
+     * @param array $options
      * @return Response
      */
-    public function send(string $method = 'GET', int $id = null, array $parameters = []): Response
+    public function send(string $method, int $id = null, array $options = []): Response
     {
-        return $this->client->send($method, $this->endpoint().($id ? '/'.$id : ''), $parameters);
+        return $this->client->send($method, $this->endpoint().($id ? '/'.$id : ''), $options);
     }
 
     /**
