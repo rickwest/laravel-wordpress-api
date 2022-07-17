@@ -10,17 +10,38 @@ abstract class Resource
 {
     protected Client $client;
 
-    protected array $globalParameters;
-
-    protected array $parameters;
+    protected Query $query;
 
     protected string $wrap = 'data';
 
     public function __construct($client)
     {
         $this->client = $client;
-        $this->globalParameters = [];
-        $this->parameters = [];
+        $this->query = new Query();
+    }
+
+    /**
+     * @param $key
+     * @param $value
+     * @return $this
+     */
+    public function globalParameter($key, $value): static
+    {
+        $this->query->globalParameter($key, $value);
+
+        return $this;
+    }
+
+    /**
+     * @param $key
+     * @param $value
+     * @return $this
+     */
+    public function parameter($key, $value): static
+    {
+        $this->query->parameter($key, $value);
+
+        return $this;
     }
 
     /**
@@ -29,7 +50,7 @@ abstract class Resource
      */
     public function embed(string|array $relations = null): static
     {
-        $this->globalParameters['_embed'] = $relations ?: '1';
+        $this->globalParameter('_embed', $relations ?: '1');
 
         return $this;
     }
@@ -49,19 +70,7 @@ abstract class Resource
      */
     public function fields(array|string $fields): static
     {
-        $this->globalParameters['_fields'] = is_string($fields) ? [$fields] : $fields;
-
-        return $this;
-    }
-
-    /**
-     * @param $key
-     * @param $value
-     * @return $this
-     */
-    public function parameter($key, $value): static
-    {
-        $this->parameters[$key] = $value;
+        $this->globalParameter('_fields', is_string($fields) ? [$fields] : $fields);
 
         return $this;
     }
@@ -73,7 +82,7 @@ abstract class Resource
      */
     public function find(int $id, array $parameters = []): ?array
     {
-        $response = $this->send('GET', $id, ['query' => array_merge($parameters, $this->globalParameters)]);
+        $response = $this->send('GET', $id, ['query' => array_merge($this->query->globalParameters(), $parameters)]);
 
         return $response->successful() ? $response->json() : null;
     }
@@ -89,9 +98,7 @@ abstract class Resource
         }
 
         return $this->listResponse(
-            $this->send('GET', null, [
-                'query' => array_merge($this->globalParameters, $this->parameters),
-            ])
+            $this->send('GET', null, ['query' => $this->query->all()])
         );
     }
 

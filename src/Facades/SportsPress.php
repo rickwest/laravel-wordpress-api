@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \RickWest\Wordpress\SportsPress
+ * @mixin \RickWest\Wordpress\SportsPress
  */
 class SportsPress extends Facade
 {

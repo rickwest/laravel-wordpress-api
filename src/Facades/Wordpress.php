@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \RickWest\Wordpress\Wordpress
+ * @mixin \RickWest\Wordpress\Wordpress
  */
 class Wordpress extends Facade
 {
