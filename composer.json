@@ -34,6 +34,9 @@
         "spatie/laravel-ray": "^1.26"
     },
     "autoload": {
+        "files": [
+            "src/Support/helpers.php"
+        ],
         "psr-4": {
             "RickWest\\Wordpress\\": "src"
         }

@@ -21,10 +21,10 @@ class WordpressServiceProvider extends PackageServiceProvider
 
     public function packageRegistered()
     {
-        $this->app->singleton('wordpress', fn () => new Wordpress());
+        $this->app->singleton(Wordpress::class, fn () => new Wordpress());
 
         if (config('wordpress-api.sportspress.enabled')) {
-            $this->app->singleton('sportspress', fn () => new SportsPress());
+            $this->app->singleton(SportsPress::class, fn () => new SportsPress());
         }
     }
 }
