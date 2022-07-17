@@ -24,7 +24,7 @@ if (! function_exists("sportspress")) {
     function sportspress()
     {
         if (! config('wordpress-api.sportspress.enabled')) {
-            throw new Exception("Sportspress not enabled. Set environment variable 'SPORTSPRESS_ENABLED' to true");
+            throw new Exception("Target class [".SportsPress::class."] does not exist. Enable is, by setting environment variable 'SPORTSPRESS_ENABLED' to true");
         }
 
         return app(SportsPress::class);

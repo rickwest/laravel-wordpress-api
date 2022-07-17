@@ -12,6 +12,6 @@ class SportsPress extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'sportspress';
+        return \RickWest\Wordpress\SportsPress::class;
     }
 }

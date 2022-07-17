@@ -12,6 +12,6 @@ class Wordpress extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'wordpress';
+        return \RickWest\Wordpress\Wordpress::class;
     }
 }
