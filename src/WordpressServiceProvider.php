@@ -19,9 +19,8 @@ class WordpressServiceProvider extends PackageServiceProvider
             ->hasConfigFile();
     }
 
-    public function packageRegistered()
+    public function packageRegistered(): void
     {
         $this->app->singleton(Wordpress::class, fn () => new Wordpress());
-        $this->app->singleton(SportsPress::class, fn () => new SportsPress());
     }
 }

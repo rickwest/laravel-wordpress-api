@@ -2,35 +2,18 @@
 
 namespace RickWest\Wordpress\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RickWest\Wordpress\WordpressServiceProvider;
 
 class TestCase extends Orchestra
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'RickWest\\Wordpress\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
-    }
-
+    /**
+     * @inheritDoc
+     */
     protected function getPackageProviders($app)
     {
         return [
             WordpressServiceProvider::class,
         ];
-    }
-
-    public function getEnvironmentSetUp($app)
-    {
-        config()->set('database.default', 'testing');
-
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-wordpress-api_table.php.stub';
-        $migration->up();
-        */
     }
 }

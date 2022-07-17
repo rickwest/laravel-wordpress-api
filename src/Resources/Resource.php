@@ -14,18 +14,18 @@ abstract class Resource
 
     protected string $wrap = 'data';
 
-    public function __construct($client)
+    public function __construct(Client $client)
     {
         $this->client = $client;
         $this->query = new Query();
     }
 
     /**
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param mixed $value
      * @return $this
      */
-    public function globalParameter($key, $value): static
+    public function globalParameter(string $key, $value): static
     {
         $this->query->globalParameter($key, $value);
 
@@ -33,11 +33,11 @@ abstract class Resource
     }
 
     /**
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param mixed $value
      * @return $this
      */
-    public function parameter($key, $value): static
+    public function parameter(string $key, $value): static
     {
         $this->query->parameter($key, $value);
 
@@ -84,7 +84,7 @@ abstract class Resource
     {
         $response = $this->send('GET', $id, ['query' => array_merge($this->query->globalParameters(), $parameters)]);
 
-        return $response->successful() ? $response->json() : null;
+        return $response->successful() ? (array) $response->json() : null;
     }
 
     /**

@@ -11,7 +11,7 @@ class Client
 
     public function __construct(string $baseUrl = null)
     {
-        $this->baseUrl = $baseUrl ?? config('wordpress-api.url');
+        $this->baseUrl = $baseUrl ?? strval(config('wordpress-api.url'));
     }
 
     /**

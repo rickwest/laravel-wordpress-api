@@ -65,8 +65,7 @@
                 "RickWest\\Wordpress\\WordpressServiceProvider"
             ],
             "aliases": {
-                "Wordpress": "RickWest\\Wordpress\\Facades\\Wordpress",
-                "SportsPress": "RickWest\\Wordpress\\Facades\\SportsPress"
+                "Wordpress": "RickWest\\Wordpress\\Facades\\Wordpress"
             }
         }
     },

@@ -15,11 +15,11 @@ class Query
     }
 
     /**
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param mixed $value
      * @return $this
      */
-    public function globalParameter($key, $value): static
+    public function globalParameter(string $key, mixed $value): static
     {
         $this->globalParameters[$key] = $value;
 
@@ -27,11 +27,11 @@ class Query
     }
 
     /**
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param mixed $value
      * @return $this
      */
-    public function parameter($key, $value): static
+    public function parameter(string $key, mixed $value): static
     {
         $this->parameters[$key] = $value;
 
