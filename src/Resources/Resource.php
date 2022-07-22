@@ -25,7 +25,7 @@ abstract class Resource
      * @param mixed $value
      * @return $this
      */
-    public function globalParameter(string $key, $value): static
+    public function globalParameter(string $key, mixed $value): static
     {
         $this->query->globalParameter($key, $value);
 
@@ -37,7 +37,7 @@ abstract class Resource
      * @param mixed $value
      * @return $this
      */
-    public function parameter(string $key, $value): static
+    public function parameter(string $key, mixed $value): static
     {
         $this->query->parameter($key, $value);
 
@@ -203,6 +203,20 @@ abstract class Resource
     {
         return $this->parameter('orderby', $field)
             ->parameter('order', $direction);
+    }
+
+    /**
+     * @param mixed $value
+     * @param callable $callback
+     * @return $this
+     */
+    public function when(mixed $value, callable $callback): static
+    {
+        if ($value) {
+            $callback($this, $value);
+        }
+
+        return $this;
     }
 
     /**
