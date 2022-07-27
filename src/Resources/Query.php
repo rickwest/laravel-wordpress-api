@@ -2,28 +2,17 @@
 
 namespace RickWest\Wordpress\Resources;
 
+use Illuminate\Support\Arr;
+
 class Query
 {
-    private array $globalParameters;
-
     private array $parameters;
+
+    private array $global = ['_fields', '_embed', '_method', '_envelope'];
 
     public function __construct()
     {
-        $this->globalParameters = [];
         $this->parameters = [];
-    }
-
-    /**
-     * @param string $key
-     * @param mixed $value
-     * @return $this
-     */
-    public function globalParameter(string $key, mixed $value): static
-    {
-        $this->globalParameters[$key] = $value;
-
-        return $this;
     }
 
     /**
@@ -41,14 +30,6 @@ class Query
     /**
      * @return array
      */
-    public function globalParameters(): array
-    {
-        return $this->globalParameters;
-    }
-
-    /**
-     * @return array
-     */
     public function parameters(): array
     {
         return $this->parameters;
@@ -57,8 +38,8 @@ class Query
     /**
      * @return array
      */
-    public function all(): array
+    public function globalParameters(): array
     {
-        return array_merge($this->globalParameters(), $this->parameters());
+        return Arr::only($this->parameters, $this->global);
     }
 }

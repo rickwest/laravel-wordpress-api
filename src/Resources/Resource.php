@@ -25,18 +25,6 @@ abstract class Resource
      * @param mixed $value
      * @return $this
      */
-    public function globalParameter(string $key, mixed $value): static
-    {
-        $this->query->globalParameter($key, $value);
-
-        return $this;
-    }
-
-    /**
-     * @param string $key
-     * @param mixed $value
-     * @return $this
-     */
     public function parameter(string $key, mixed $value): static
     {
         $this->query->parameter($key, $value);
@@ -50,7 +38,7 @@ abstract class Resource
      */
     public function embed(string|array $relations = null): static
     {
-        $this->globalParameter('_embed', $relations ?: '1');
+        $this->parameter('_embed', $relations ?: '1');
 
         return $this;
     }
@@ -70,7 +58,7 @@ abstract class Resource
      */
     public function fields(array|string $fields): static
     {
-        $this->globalParameter('_fields', is_string($fields) ? [$fields] : $fields);
+        $this->parameter('_fields', $fields);
 
         return $this;
     }
@@ -98,7 +86,7 @@ abstract class Resource
         }
 
         return $this->listResponse(
-            $this->send('GET', null, ['query' => $this->query->all()])
+            $this->send('GET', null, ['query' => $this->query->parameters()])
         );
     }
 
@@ -111,7 +99,7 @@ abstract class Resource
         $successful = $response->successful();
 
         return [
-            $this->wrap => $successful ? $response->collect() : collect([]),
+            $this->wrap => $successful ? $response->json() : [],
             'meta' => [
                 'pages' => $successful ? (int) $response->header('X-WP-TotalPages') : 0,
                 'total' => $successful ? (int) $response->header('X-WP-Total') : 0,

@@ -10,7 +10,7 @@ class TestCase extends Orchestra
     /**
      * @inheritDoc
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             WordpressServiceProvider::class,
