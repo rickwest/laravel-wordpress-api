@@ -27,7 +27,7 @@ Wordpress::posts()
     ->get('title');
 ```
 
-As well as the fluent query builder, you also benefit from a nicely formatted response, with pagination information.
+As well as the fluent query builder, you also benefit from a nicely formatted response, along with pagination information.
 
 ```php
 // Without this package 👎
@@ -68,10 +68,10 @@ WORDPRESS_URL=https://example.com
 ## Usage
 
 This package binds a singleton to the Laravel service container, so you can easily resolve the WordPress client directly from the container, or via dependency injection. 
-Alternatively, the package also exposes both a Facade and a helper function should you prefer a shorter, expressive option.
+Alternatively, the package also exposes both a Facade and a helper function should you prefer a shorter more expressive option.
 
-Currently, the package has support for the following WordPress resources: categories, comments, media, pages, posts and users. 
-Adding support for further resources is really easy, but these are the only ones that I need for now! For a list of available all available resources see https://developer.wordpress.org/rest-api/reference. I'm happy to accept PR's for any additions.
+Currently, the package has support for the following WordPress resources: *categories, comments, media, pages, posts, users*. 
+Adding support for further resources is really easy, but these are the only ones that I need for now! For a list of all available resources please see https://developer.wordpress.org/rest-api/reference. I'm happy to accept PR's for any additions.
 
 ```php
 // Resolve service directly from container and access the Posts API
@@ -167,7 +167,7 @@ Whilst this package is primarily intended for reading data from the WordPress AP
 Wordpress::posts()->send(string $method, int $id, array $options);
 
 // For example, updating a post might look like...
-Wordpress::posts()->send('POST', 45, [
+Wordpress::posts()->send('POST', 1, [
     'json' => ['title' => 'My New Title'],
 ]);
 
