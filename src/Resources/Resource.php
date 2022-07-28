@@ -237,7 +237,7 @@ abstract class Resource
     /**
      * @return string
      */
-    protected function name(): string
+    public function name(): string
     {
         return Str::lower(
             (new \ReflectionClass($this))->getShortName()
