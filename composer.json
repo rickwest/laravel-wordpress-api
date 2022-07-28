@@ -1,6 +1,6 @@
 {
     "name": "rickwest/laravel-wordpress-api",
-    "description": "A read-only client for the WordPress REST API (v2)",
+    "description": "A Laravel read-only client for the WordPress REST API (v2)",
     "keywords": [
         "wordpress",
         "laravel",
