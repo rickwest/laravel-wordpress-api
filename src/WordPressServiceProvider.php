@@ -1,11 +1,11 @@
 <?php
 
-namespace RickWest\Wordpress;
+namespace RickWest\WordPress;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class WordpressServiceProvider extends PackageServiceProvider
+class WordPressServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,6 +16,6 @@ class WordpressServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        $this->app->singleton(Wordpress::class, fn () => new Wordpress());
+        $this->app->singleton(WordPress::class, fn () => new WordPress());
     }
 }

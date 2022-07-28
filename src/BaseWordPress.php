@@ -1,11 +1,11 @@
 <?php
 
-namespace RickWest\Wordpress;
+namespace RickWest\WordPress;
 
 use InvalidArgumentException;
-use RickWest\Wordpress\Resources\Resource;
+use RickWest\WordPress\Resources\Resource;
 
-abstract class BaseWordpress
+abstract class BaseWordPress
 {
     protected Client $client;
 

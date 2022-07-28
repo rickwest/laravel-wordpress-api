@@ -1,8 +1,8 @@
 <?php
 
-namespace RickWest\Wordpress\Resources;
+namespace RickWest\WordPress\Resources;
 
-use RickWest\Wordpress\Resources\Traits\HasSlug;
+use RickWest\WordPress\Resources\Traits\HasSlug;
 
 class Categories extends Resource
 {

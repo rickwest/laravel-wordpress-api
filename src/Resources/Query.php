@@ -1,6 +1,6 @@
 <?php
 
-namespace RickWest\Wordpress\Resources;
+namespace RickWest\WordPress\Resources;
 
 use Illuminate\Support\Arr;
 

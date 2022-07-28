@@ -1,8 +1,8 @@
 <?php
 
-namespace RickWest\Wordpress\Resources;
+namespace RickWest\WordPress\Resources;
 
-use RickWest\Wordpress\Resources\Traits\HasDate;
+use RickWest\WordPress\Resources\Traits\HasDate;
 
 class Comments extends Resource
 {

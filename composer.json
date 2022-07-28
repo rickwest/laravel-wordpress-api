@@ -37,12 +37,12 @@
             "src/Support/helpers.php"
         ],
         "psr-4": {
-            "RickWest\\Wordpress\\": "src"
+            "RickWest\\WordPress\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RickWest\\Wordpress\\Tests\\": "tests"
+            "RickWest\\WordPress\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -59,10 +59,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RickWest\\Wordpress\\WordpressServiceProvider"
+                "RickWest\\WordPress\\WordPressServiceProvider"
             ],
             "aliases": {
-                "Wordpress": "RickWest\\Wordpress\\Facades\\Wordpress"
+                "WordPress": "RickWest\\WordPress\\Facades\\WordPress"
             }
         }
     },

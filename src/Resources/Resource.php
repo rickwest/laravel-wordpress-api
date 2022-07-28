@@ -1,10 +1,10 @@
 <?php
 
-namespace RickWest\Wordpress\Resources;
+namespace RickWest\WordPress\Resources;
 
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Str;
-use RickWest\Wordpress\Client;
+use RickWest\WordPress\Client;
 
 abstract class Resource
 {

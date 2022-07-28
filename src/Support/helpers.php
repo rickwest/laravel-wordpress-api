@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Contracts\Foundation\Application;
-use RickWest\Wordpress\Wordpress;
+use RickWest\WordPress\WordPress;
 
 if (! function_exists("wordpress")) {
 
     /**
-     * @return Application|mixed|Wordpress
+     * @return Application|mixed|WordPress
      */
     function wordpress()
     {
-        return app(Wordpress::class);
+        return app(WordPress::class);
     }
 }

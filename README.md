@@ -20,7 +20,7 @@ Http::get('https://example.com/wp-json/wp/v2/posts', [
 
 
 // Using the package 👌
-Wordpress::posts()
+WordPress::posts()
     ->search('potatoes')
     ->embed()
     ->latest()
@@ -38,7 +38,7 @@ $total = $response->header('X-WP-Total');
 
 
 // Using the package 👌
-$posts = Wordpress::posts()->get();
+$posts = WordPress::posts()->get();
 
 // $posts
 [
@@ -75,21 +75,21 @@ Adding support for further resources is really easy, but these are the only ones
 
 ```php
 // Resolve service directly from container and access the Posts API
-app(Wordpress::class)->posts();
+app(WordPress::class)->posts();
 
 // Resolve via Facade and access the Posts API
-Wordpress::posts(); 
+WordPress::posts(); 
 
 // Resolve service via helper and access the Posts API
 wordpress()->posts();
 
 // Supported resources
-Wordpress::categories(); // Access the Categories API
-Wordpress::comments(); // Access the Comments API
-Wordpress::media(); // Access the Media API
-Wordpress::pages(); // Access the Pages API
-Wordpress::posts(); // Access the Posts API
-Wordpress::users(); // Access the Users API
+WordPress::categories(); // Access the Categories API
+WordPress::comments(); // Access the Comments API
+WordPress::media(); // Access the Media API
+WordPress::pages(); // Access the Pages API
+WordPress::posts(); // Access the Posts API
+WordPress::users(); // Access the Users API
 
 // You can also access resources as properties
 wordpress()->posts
@@ -100,14 +100,14 @@ wordpress()->posts
 Call the `find` method on a resource class in order to get a single resource by ID:
 
 ```php
-Wordpress::posts()->find(1);
+WordPress::posts()->find(1);
 
 // All WordPress resources share a handful of global parameters. https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/ 
 // You can use the relevant fluent builder methods to add these to your query
-Wordpress::posts()->embed()->fields('title')->find(1);
+WordPress::posts()->embed()->fields('title')->find(1);
 
 // Some resources also accept a limited number of resource specific parameters. These can be passed as a second argument to the find method
-Wordpress::posts()->find(1, ['password' => 'pa55w0rd']);
+WordPress::posts()->find(1, ['password' => 'pa55w0rd']);
 ```
 
 ### Retrieve a collection of resources
@@ -116,11 +116,11 @@ Call the `get` method on a resource to retrieve a collection of resources. The r
 This package provides some fluent builder methods in order to easily and expressively build your desired query. Collection responses are then nicely formatted and include useful pagination information. 
 
 ```php
-Wordpress::posts()->get();
+WordPress::posts()->get();
 
 // All WordPress resources share a handful of global parameters, https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/,
 // along with a number of filtering, ordering and pagination options. You can use the relevant fluent builder methods to build your query.
-Wordpress::posts()
+WordPress::posts()
     ->embed(array|string $relations) // Embed linked resources into response. Reduces need for extra HTTP requests for related resources
     ->fields(array|string $fields) // Specify a subset fields to return in a response
     ->with(array|string $fields) // Alias for fields method above
@@ -152,7 +152,7 @@ Wordpress::posts()
     ->get();
 
 // Conditionally adding parameters
-Wordpress::posts()
+WordPress::posts()
     ->when($onlyIncludeTitle, function($query) {
         $query->fields('title');
     })
@@ -164,10 +164,10 @@ Wordpress::posts()
 Whilst this package is primarily intended for reading data from the WordPress API, it is possible to perform write operations using the `send` method on a resource class.
 
 ```php
-Wordpress::posts()->send(string $method, int $id, array $options);
+WordPress::posts()->send(string $method, int $id, array $options);
 
 // For example, updating a post might look like...
-Wordpress::posts()->send('POST', 1, [
+WordPress::posts()->send('POST', 1, [
     'json' => ['title' => 'My New Title'],
 ]);
 

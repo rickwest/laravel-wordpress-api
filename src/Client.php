@@ -1,6 +1,6 @@
 <?php
 
-namespace RickWest\Wordpress;
+namespace RickWest\WordPress;
 
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;

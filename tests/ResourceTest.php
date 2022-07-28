@@ -1,15 +1,15 @@
 <?php
 
-namespace RickWest\Wordpress\Tests;
+namespace RickWest\WordPress\Tests;
 
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Http;
-use RickWest\Wordpress\Client;
-use RickWest\Wordpress\Resources\Resource as BaseResource;
-use RickWest\Wordpress\Resources\Traits\HasAuthor;
-use RickWest\Wordpress\Resources\Traits\HasDate;
-use RickWest\Wordpress\Resources\Traits\HasSlug;
+use RickWest\WordPress\Client;
+use RickWest\WordPress\Resources\Resource as BaseResource;
+use RickWest\WordPress\Resources\Traits\HasAuthor;
+use RickWest\WordPress\Resources\Traits\HasDate;
+use RickWest\WordPress\Resources\Traits\HasSlug;
 
 class ResourceTest extends TestCase
 {

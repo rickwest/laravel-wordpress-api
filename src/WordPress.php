@@ -1,13 +1,13 @@
 <?php
 
-namespace RickWest\Wordpress;
+namespace RickWest\WordPress;
 
-use RickWest\Wordpress\Resources\Categories;
-use RickWest\Wordpress\Resources\Comments;
-use RickWest\Wordpress\Resources\Media;
-use RickWest\Wordpress\Resources\Pages;
-use RickWest\Wordpress\Resources\Posts;
-use RickWest\Wordpress\Resources\Users;
+use RickWest\WordPress\Resources\Categories;
+use RickWest\WordPress\Resources\Comments;
+use RickWest\WordPress\Resources\Media;
+use RickWest\WordPress\Resources\Pages;
+use RickWest\WordPress\Resources\Posts;
+use RickWest\WordPress\Resources\Users;
 
 /**
  * @method Comments comments()
@@ -17,7 +17,7 @@ use RickWest\Wordpress\Resources\Users;
  * @method Posts posts()
  * @method Users users()
  */
-class Wordpress extends BaseWordpress
+class WordPress extends BaseWordPress
 {
     protected array $resources = [
         'categories' => Categories::class,

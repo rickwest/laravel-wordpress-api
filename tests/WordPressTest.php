@@ -1,24 +1,24 @@
 <?php
 
-namespace RickWest\Wordpress\Tests;
+namespace RickWest\WordPress\Tests;
 
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use InvalidArgumentException;
-use RickWest\Wordpress\Facades\Wordpress as WordpressFacade;
-use RickWest\Wordpress\Resources\Categories;
-use RickWest\Wordpress\Resources\Comments;
-use RickWest\Wordpress\Resources\Media;
-use RickWest\Wordpress\Resources\Pages;
-use RickWest\Wordpress\Resources\Posts;
-use RickWest\Wordpress\Resources\Resource;
-use RickWest\Wordpress\Resources\Users;
-use RickWest\Wordpress\Wordpress;
+use RickWest\WordPress\Facades\WordPress as WordPressFacade;
+use RickWest\WordPress\Resources\Categories;
+use RickWest\WordPress\Resources\Comments;
+use RickWest\WordPress\Resources\Media;
+use RickWest\WordPress\Resources\Pages;
+use RickWest\WordPress\Resources\Posts;
+use RickWest\WordPress\Resources\Resource;
+use RickWest\WordPress\Resources\Users;
+use RickWest\WordPress\WordPress;
 
-class WordpressTest extends TestCase
+class WordPressTest extends TestCase
 {
-    public Wordpress $wordpress;
+    public WordPress $wordpress;
 
     public function setUp(): void
     {
@@ -26,22 +26,22 @@ class WordpressTest extends TestCase
 
         Config::set('wordpress-api.url', 'https://example.com');
 
-        $this->wordpress = app(Wordpress::class);
+        $this->wordpress = app(WordPress::class);
     }
 
     public function testCanBeInstantiated(): void
     {
-        $this->assertInstanceOf(Wordpress::class, new Wordpress());
+        $this->assertInstanceOf(WordPress::class, new WordPress());
     }
 
-    public function testFacadeReturnsInstanceOfWordpress(): void
+    public function testFacadeReturnsInstanceOfWordPress(): void
     {
-        $this->assertInstanceOf(Wordpress::class, WordpressFacade::getFacadeRoot());
+        $this->assertInstanceOf(WordPress::class, WordPressFacade::getFacadeRoot());
     }
 
-    public function testHelperReturnsInstanceOfWordpress(): void
+    public function testHelperReturnsInstanceOfWordPress(): void
     {
-        $this->assertInstanceOf(Wordpress::class, wordpress());
+        $this->assertInstanceOf(WordPress::class, wordpress());
     }
 
     /**

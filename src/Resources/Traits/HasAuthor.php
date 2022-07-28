@@ -1,6 +1,6 @@
 <?php
 
-namespace RickWest\Wordpress\Resources\Traits;
+namespace RickWest\WordPress\Resources\Traits;
 
 trait HasAuthor
 {

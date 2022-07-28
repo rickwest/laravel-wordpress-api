@@ -1,9 +1,9 @@
 <?php
 
-namespace RickWest\Wordpress\Tests;
+namespace RickWest\WordPress\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use RickWest\Wordpress\WordpressServiceProvider;
+use RickWest\WordPress\WordPressServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app): array
     {
         return [
-            WordpressServiceProvider::class,
+            WordPressServiceProvider::class,
         ];
     }
 }
