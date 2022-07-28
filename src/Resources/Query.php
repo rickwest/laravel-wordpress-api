@@ -8,6 +8,12 @@ class Query
 {
     private array $parameters;
 
+    /**
+     * Permitted global parameters which control how the API handles the request/response handling.
+     * These operate at a layer above the actual resources themselves, and are available on all resources.
+     *
+     * @var array|string[]
+     */
     private array $global = ['_fields', '_embed', '_method', '_envelope'];
 
     public function __construct()

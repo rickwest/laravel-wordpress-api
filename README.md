@@ -9,7 +9,7 @@
 An unambitious read-only client for the WordPress REST API (v2). This package is the by-product of a side project, having found that I wanted a more expressive, fluent, Laravel-esque way of querying the WordPress API.
 
 ```php
-// Without this package 👎
+// Without the package 👎
 Http::get('https://example.com/wp-json/wp/v2/posts', [
     'search' => 'potatoes',
     '_embed' => 1,
@@ -19,7 +19,7 @@ Http::get('https://example.com/wp-json/wp/v2/posts', [
 ]);
 
 
-// Using this package 👌
+// Using the package 👌
 Wordpress::posts()
     ->search('potatoes')
     ->embed()
@@ -27,17 +27,17 @@ Wordpress::posts()
     ->get('title');
 ```
 
-As well as the fluent query builder, you also benefit from a nicely formatted response, along with pagination information.
+As well as the fluent query builder, you also benefit from a nicely formatted response, including pagination information.
 
 ```php
-// Without this package 👎
+// Without the package 👎
 $response = Http::get('https://example.com/wp-json/wp/v2/posts');
 $data = $response->json();
 $pages = $response->header('X-WP-TotalPages');
 $total = $response->header('X-WP-Total');
 
 
-// Using this package 👌
+// Using the package 👌
 $posts = Wordpress::posts()->get();
 
 // $posts
@@ -113,13 +113,13 @@ Wordpress::posts()->find(1, ['password' => 'pa55w0rd']);
 ### Retrieve a collection of resources
 
 Call the `get` method on a resource to retrieve a collection of resources. The response you receive can be controlled and filtered using various parameters, https://developer.wordpress.org/rest-api/reference/.
-This package provides some fluent builder methods in order to easily and expressively build your desired query. Collection responses are then nicely formatted, along with pagination information. 
+This package provides some fluent builder methods in order to easily and expressively build your desired query. Collection responses are then nicely formatted and include useful pagination information. 
 
 ```php
 Wordpress::posts()->get();
 
 // All WordPress resources share a handful of global parameters, https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/,
-// along with a number of filtering, ordering and pagination options. You can use the relevant fluent builder methods to a build your query.
+// along with a number of filtering, ordering and pagination options. You can use the relevant fluent builder methods to build your query.
 Wordpress::posts()
     ->embed(array|string $relations) // Embed linked resources into response. Reduces need for extra HTTP requests for related resources
     ->fields(array|string $fields) // Specify a subset fields to return in a response

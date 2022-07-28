@@ -21,50 +21,22 @@ abstract class Resource
     }
 
     /**
-     * @param string $key
-     * @param mixed $value
-     * @return $this
+     * Send a request to the resource endpoint.
+     *
+     * @param string $method
+     * @param int|null $id
+     * @param array $options
+     * @return Response
      */
-    public function parameter(string $key, mixed $value): static
+    public function send(string $method, int $id = null, array $options = []): Response
     {
-        $this->query->parameter($key, $value);
-
-        return $this;
+        return $this->client->send($method, $this->endpoint().($id ? '/'.$id : ''), $options);
     }
 
     /**
-     * @param string|string[]|null $relations
-     * @return $this
-     */
-    public function embed(string|array $relations = null): static
-    {
-        $this->parameter('_embed', $relations ?: '1');
-
-        return $this;
-    }
-
-    /**
-     * @param string|string[] $relations
-     * @return $this
-     */
-    public function with(string|array $relations): static
-    {
-        return $this->embed($relations);
-    }
-
-    /**
-     * @param array|string $fields
-     * @return $this
-     */
-    public function fields(array|string $fields): static
-    {
-        $this->parameter('_fields', $fields);
-
-        return $this;
-    }
-
-    /**
-     * @param int $id Unique identifier for the resource.
+     * Retrieve a specific resource by ID.
+     *
+     * @param int $id
      * @param array $parameters
      * @return array|null
      */
@@ -76,7 +48,9 @@ abstract class Resource
     }
 
     /**
-     * @param array|string|null $fields
+     * Retrieve a collection of resources.
+     *
+     * @param array|string|null $fields Specify a subset of fields to return, in the response.
      * @return array
      */
     public function get(array|string $fields = null): array
@@ -91,6 +65,8 @@ abstract class Resource
     }
 
     /**
+     * Format a list response, adding pagination information.
+     *
      * @param Response $response
      * @return array
      */
@@ -108,14 +84,59 @@ abstract class Resource
     }
 
     /**
-     * @param string $method
-     * @param int|null $id
-     * @param array $options
-     * @return Response
+     * Add a parameter to the query.
+     *
+     * @param string $key
+     * @param mixed $value
+     * @return $this
      */
-    public function send(string $method, int $id = null, array $options = []): Response
+    public function parameter(string $key, mixed $value): static
     {
-        return $this->client->send($method, $this->endpoint().($id ? '/'.$id : ''), $options);
+        $this->query->parameter($key, $value);
+
+        return $this;
+    }
+
+    /**
+     * Embed related resources.
+     * Can optionally be passed a single/array of specific resources to embed.
+     *
+     * @see https://developer.wordpress.org/rest-api/using-the-rest-api/linking-and-embedding/
+     *
+     * @param string|string[]|null $relations
+     * @return $this
+     */
+    public function embed(string|array $relations = null): static
+    {
+        $this->parameter('_embed', $relations ?: '1');
+
+        return $this;
+    }
+
+    /**
+     * More expressive alias for embed.
+     *
+     * @param string|string[] $relations
+     * @return $this
+     */
+    public function with(string|array $relations): static
+    {
+        return $this->embed($relations);
+    }
+
+    /**
+     * Specify a subset of fields to return, in the response.
+     *
+     * @see https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/#_fields
+     *
+     * @param array|string $fields
+     * @return $this
+     */
+    public function fields(array|string $fields): static
+    {
+        $this->parameter('_fields', $fields);
+
+        return $this;
     }
 
     /**
@@ -152,6 +173,8 @@ abstract class Resource
     }
 
     /**
+     * Limit results to those matching a string.
+     *
      * @param string $term
      * @return $this
      */
@@ -183,6 +206,8 @@ abstract class Resource
     }
 
     /**
+     * Sort collection by object attribute, either ascending or descending.
+     *
      * @param string $field
      * @param string $direction
      * @return $this
@@ -194,6 +219,8 @@ abstract class Resource
     }
 
     /**
+     * Conditionally add a parameter to the query.
+     *
      * @param mixed $value
      * @param callable $callback
      * @return $this

@@ -1,10 +1,10 @@
 {
     "name": "rickwest/laravel-wordpress-api",
-    "description": "This is my package laravel-wordpress-api",
+    "description": "A read-only client for the WordPress REST API (v2)",
     "keywords": [
-        "RickWest",
+        "wordpress",
         "laravel",
-        "laravel-wordpress-api"
+        "ap'i"
     ],
     "homepage": "https://github.com/rickwest/laravel-wordpress-api",
     "license": "MIT",
