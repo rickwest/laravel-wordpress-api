@@ -2,9 +2,11 @@
 <img src="./art/social-image.png"  alt=""/>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rickwest/laravel-wordpress-api.svg?style=flat-square)](https://packagist.org/packages/rickwest/laravel-wordpress-api)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/rickwest/laravel-wordpress-api/run-tests?label=tests)](https://github.com/rickwest/laravel-wordpress-api/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/rickwest/laravel-wordpress-api/Check%20&%20fix%20styling?label=code%20style)](https://github.com/rickwest/laravel-wordpress-api/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/rickwest/laravel-wordpress-api/run-tests.yml?branch=main&label=tests)](https://github.com/rickwest/laravel-wordpress-api/actions/workflows/run-tests.yml)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/rickwest/laravel-wordpress-api/php-cs-fixer.yml?branch=main&label=code%20style)](https://github.com/rickwest/laravel-wordpress-api/actions/workflows/php-cs-fixer.yml)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/rickwest/laravel-wordpress-api/phpstan.yml?branch=main&label=static%20analysis)](https://github.com/rickwest/laravel-wordpress-api/actions/workflows/php-cs-fixer.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/rickwest/laravel-wordpress-api.svg?style=flat-square)](https://packagist.org/packages/rickwest/laravel-wordpress-api)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
 An unambitious read-only client for the WordPress REST API (v2). This package is the by-product of a side project, having found that I wanted a more expressive, fluent, Laravel-esque way of querying the WordPress API.
 
