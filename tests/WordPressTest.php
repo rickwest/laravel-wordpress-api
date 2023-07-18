@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 use InvalidArgumentException;
 use RickWest\WordPress\Facades\WordPress as WordPressFacade;
 use RickWest\WordPress\Resources\Categories;
+use RickWest\WordPress\Resources\Tags;
 use RickWest\WordPress\Resources\Comments;
 use RickWest\WordPress\Resources\Media;
 use RickWest\WordPress\Resources\Pages;
@@ -133,6 +134,7 @@ class WordPressTest extends TestCase
     {
         return [
             ['categories', Categories::class, ],
+            ['tags', Tags::class, ],
             ['comments', Comments::class, ],
             ['media', Media::class, ],
             ['pages', Pages::class, ],
