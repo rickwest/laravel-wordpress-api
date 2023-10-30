@@ -13,7 +13,7 @@ use RickWest\WordPress\Resources\Users;
 /**
  * @method Comments comments()
  * @method Categories categories()
- * @method tags tags()
+ * @method Tags tags()
  * @method Media media()
  * @method Pages pages()
  * @method Posts posts()
