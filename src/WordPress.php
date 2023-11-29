@@ -6,10 +6,10 @@ use RickWest\WordPress\Resources\Categories;
 use RickWest\WordPress\Resources\Comments;
 use RickWest\WordPress\Resources\Media;
 use RickWest\WordPress\Resources\Pages;
+use RickWest\WordPress\Resources\Plugins;
 use RickWest\WordPress\Resources\Posts;
 use RickWest\WordPress\Resources\Tags;
 use RickWest\WordPress\Resources\Users;
-use RickWest\WordPress\Resources\Plugins;
 
 /**
  * @method Comments comments()
