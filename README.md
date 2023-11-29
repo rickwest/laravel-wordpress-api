@@ -92,6 +92,8 @@ WordPress::media(); // Access the Media API
 WordPress::pages(); // Access the Pages API
 WordPress::posts(); // Access the Posts API
 WordPress::users(); // Access the Users API
+Wordpress::tags(); // Access the Tags API
+Wordpress::plugins(); // Access the Plugins API
 
 // You can also access resources as properties
 wordpress()->posts
