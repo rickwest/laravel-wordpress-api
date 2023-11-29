@@ -3,6 +3,7 @@
 namespace RickWest\WordPress;
 
 use RickWest\WordPress\Resources\Categories;
+use RickWest\WordPress\Resources\Tags;
 use RickWest\WordPress\Resources\Comments;
 use RickWest\WordPress\Resources\Media;
 use RickWest\WordPress\Resources\Pages;
@@ -12,6 +13,7 @@ use RickWest\WordPress\Resources\Users;
 /**
  * @method Comments comments()
  * @method Categories categories()
+ * @method Tags tags()
  * @method Media media()
  * @method Pages pages()
  * @method Posts posts()
@@ -21,6 +23,7 @@ class WordPress extends BaseWordPress
 {
     protected array $resources = [
         'categories' => Categories::class,
+        'tags' => Tags::class,
         'comments' => Comments::class,
         'media' => Media::class,
         'pages' => Pages::class,
