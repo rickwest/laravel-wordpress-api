@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Http;
 use InvalidArgumentException;
 use RickWest\WordPress\Facades\WordPress as WordPressFacade;
 use RickWest\WordPress\Resources\Categories;
-use RickWest\WordPress\Resources\Tags;
 use RickWest\WordPress\Resources\Comments;
 use RickWest\WordPress\Resources\Media;
 use RickWest\WordPress\Resources\Pages;
 use RickWest\WordPress\Resources\Posts;
 use RickWest\WordPress\Resources\Resource;
+use RickWest\WordPress\Resources\Tags;
 use RickWest\WordPress\Resources\Users;
 use RickWest\WordPress\WordPress;
 
