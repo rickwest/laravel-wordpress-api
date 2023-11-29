@@ -9,6 +9,7 @@ use RickWest\WordPress\Resources\Pages;
 use RickWest\WordPress\Resources\Posts;
 use RickWest\WordPress\Resources\Tags;
 use RickWest\WordPress\Resources\Users;
+use RickWest\WordPress\Resources\Plugins;
 
 /**
  * @method Comments comments()
@@ -18,6 +19,7 @@ use RickWest\WordPress\Resources\Users;
  * @method Pages pages()
  * @method Posts posts()
  * @method Users users()
+ * @method Plugins plugins()
  */
 class WordPress extends BaseWordPress
 {
@@ -29,5 +31,6 @@ class WordPress extends BaseWordPress
         'pages' => Pages::class,
         'posts' => Posts::class,
         'users' => Users::class,
+        'plugins' => Plugins::class,
     ];
 }

@@ -15,6 +15,7 @@ use RickWest\WordPress\Resources\Posts;
 use RickWest\WordPress\Resources\Resource;
 use RickWest\WordPress\Resources\Tags;
 use RickWest\WordPress\Resources\Users;
+use RickWest\WordPress\Resources\Plugins;
 use RickWest\WordPress\WordPress;
 
 class WordPressTest extends TestCase
@@ -140,6 +141,7 @@ class WordPressTest extends TestCase
             ['pages', Pages::class, ],
             ['posts', Posts::class, ],
             ['users', Users::class, ],
+            ['plugins', Plugins::class, ],
         ];
     }
 }
