@@ -12,6 +12,8 @@ abstract class Resource
 
     protected Query $query;
 
+    protected array $httpOptions = [];
+
     protected string $wrap = 'data';
 
     public function __construct(Client $client)
@@ -30,6 +32,7 @@ abstract class Resource
      */
     public function send(string $method, int $id = null, array $options = []): Response
     {
+        $options = array_merge($options, $this->httpOptions);
         return $this->client->send($method, $this->endpoint().($id ? '/'.$id : ''), $options);
     }
 
@@ -242,6 +245,19 @@ abstract class Resource
         return Str::lower(
             (new \ReflectionClass($this))->getShortName()
         );
+    }
+
+    /**
+     * Set HTTP options for the request.
+     *
+     * @param  array $options
+     * @return $this
+     */
+    public function withOptions(array $options)
+    {
+        $this->httpOptions = $options;
+
+        return $this;
     }
 
     /**
