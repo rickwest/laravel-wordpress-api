@@ -69,10 +69,10 @@ WORDPRESS_URL=https://example.com
 
 ## Usage
 
-This package binds a singleton to the Laravel service container, so you can easily resolve the WordPress client directly from the container, or via dependency injection. 
+This package binds a singleton to the Laravel service container, so you can easily resolve the WordPress client directly from the container, or via dependency injection.
 Alternatively, the package also exposes both a Facade and a helper function should you prefer a shorter more expressive option.
 
-Currently, the package has support for the following WordPress resources: *categories, comments, media, pages, posts, users*. 
+Currently, the package has support for the following WordPress resources: *categories, comments, media, pages, posts, users*.
 Adding support for further resources is really easy, but these are the only ones that I need for now! For a list of all available resources please see https://developer.wordpress.org/rest-api/reference. I'm happy to accept PR's for any additions.
 
 ```php
@@ -80,7 +80,7 @@ Adding support for further resources is really easy, but these are the only ones
 app(WordPress::class)->posts();
 
 // Resolve via Facade and access the Posts API
-WordPress::posts(); 
+WordPress::posts();
 
 // Resolve service via helper and access the Posts API
 wordpress()->posts();
@@ -106,7 +106,7 @@ Call the `find` method on a resource class in order to get a single resource by 
 ```php
 WordPress::posts()->find(1);
 
-// All WordPress resources share a handful of global parameters. https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/ 
+// All WordPress resources share a handful of global parameters. https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/
 // You can use the relevant fluent builder methods to add these to your query
 WordPress::posts()->embed()->fields('title')->find(1);
 
@@ -117,7 +117,7 @@ WordPress::posts()->find(1, ['password' => 'pa55w0rd']);
 ### Retrieve a collection of resources
 
 Call the `get` method on a resource to retrieve a collection of resources. The response you receive can be controlled and filtered using various parameters, https://developer.wordpress.org/rest-api/reference/.
-This package provides some fluent builder methods in order to easily and expressively build your desired query. Collection responses are then nicely formatted and include useful pagination information. 
+This package provides some fluent builder methods in order to easily and expressively build your desired query. Collection responses are then nicely formatted and include useful pagination information.
 
 ```php
 WordPress::posts()->get();
@@ -135,24 +135,24 @@ WordPress::posts()
     ->exlclude(int|array $ids) // Ensure result set excludes specific IDs
     ->inlude(int|array $ids) // Limit result set to specific IDs
     ->orderBy(string $field, string $direction) // Sort collection by object attribute, either ascending or descending
-    
-    // Resources with authors  
+
+    // Resources with authors
     ->author() // Limit result set to resources assigned to specific authors
     ->authorExclude() // Ensure result set excludes resources assigned to specific authors
-    
+
     // Resources with dates
     ->after(Carbon $after) // Limit response to resources published after a given ISO8601 compliant date
     ->before(Carbon $before) // Limit response to resources published before a given ISO8601 compliant date
     ->latest() // Order by date, descending
     ->olders() // Order by date, ascending
-    
+
     // Resources with slugs
     ->slug(string $slug)
-    
+
     // When a utility doesn't exist for the parameter
     ->parameter(string $key, mixed $value) // Add a custom parameter to the query
-    
-    // Send it!        
+
+    // Send it!
     ->get();
 
 // Conditionally adding parameters
@@ -175,6 +175,22 @@ WordPress::posts()->send('POST', 1, [
     'json' => ['title' => 'My New Title'],
 ]);
 
+```
+
+### HTTP Client options
+
+Once you have a resource you can set Http client options on it before you make the request:
+
+```php
+// Using the Facade
+WordPress::posts()->withOptions([
+    'verify' => false,
+])->get();
+
+// Using the helper
+wordpress()->posts()->withOptions([
+    'verify' => false,
+])->get();
 ```
 
 ## Testing
