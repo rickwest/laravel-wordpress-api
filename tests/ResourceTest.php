@@ -327,6 +327,19 @@ class ResourceTest extends TestCase
         });
     }
 
+    public function testWithOptions(): void
+    {
+        $this->resource->withOptions(['connect_timeout' => 30, 'verify' => false])->get();
+
+        // There does not seem to be a way to test that a request was
+        // sent with a specific option.
+        // TODO: Find a way to test withOptions()
+
+        // Http::assertSent(function (Request $request) {
+        //     return ??;
+        // });
+    }
+
     public function testGetBuildsCorrectQuery(): void
     {
         $this->resource->latest()
