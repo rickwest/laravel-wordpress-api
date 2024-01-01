@@ -144,7 +144,7 @@ WordPress::posts()
     ->after(Carbon $after) // Limit response to resources published after a given ISO8601 compliant date
     ->before(Carbon $before) // Limit response to resources published before a given ISO8601 compliant date
     ->latest() // Order by date, descending
-    ->olders() // Order by date, ascending
+    ->oldest() // Order by date, ascending
     
     // Resources with slugs
     ->slug(string $slug)
