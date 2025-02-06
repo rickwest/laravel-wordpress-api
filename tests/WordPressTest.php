@@ -131,7 +131,7 @@ class WordPressTest extends TestCase
         });
     }
 
-    public function resourceNameClassProvider(): array
+    public static function resourceNameClassProvider(): array
     {
         return [
             ['categories', Categories::class, ],
