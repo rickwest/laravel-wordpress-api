@@ -28,7 +28,7 @@ abstract class Resource
      * @param array $options
      * @return Response
      */
-    public function send(string $method, int $id = null, array $options = []): Response
+    public function send(string $method, ?int $id = null, array $options = []): Response
     {
         return $this->client->send($method, $this->endpoint().($id ? '/'.$id : ''), $options);
     }
@@ -53,7 +53,7 @@ abstract class Resource
      * @param array|string|null $fields Specify a subset of fields to return, in the response.
      * @return array
      */
-    public function get(array|string $fields = null): array
+    public function get(array|string|null $fields = null): array
     {
         if ($fields) {
             $this->fields($fields);
@@ -106,7 +106,7 @@ abstract class Resource
      * @param string|string[]|null $relations
      * @return $this
      */
-    public function embed(string|array $relations = null): static
+    public function embed(string|array|null $relations = null): static
     {
         $this->parameter('_embed', $relations ?: '1');
 
