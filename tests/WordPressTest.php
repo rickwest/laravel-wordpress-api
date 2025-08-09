@@ -6,6 +6,7 @@ use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use InvalidArgumentException;
+use PHPUnit\Framework\Attributes\DataProvider;
 use RickWest\WordPress\Facades\WordPress as WordPressFacade;
 use RickWest\WordPress\Resources\Categories;
 use RickWest\WordPress\Resources\Comments;
@@ -49,6 +50,7 @@ class WordPressTest extends TestCase
     /**
      * @dataProvider resourceNameClassProvider
      */
+    #[DataProvider('resourceNameClassProvider')]
     public function testInstantiatesCorrectResourceClassMethodAccess($name, $class): void
     {
         $this->assertInstanceOf($class, $this->wordpress->$name());
@@ -57,6 +59,7 @@ class WordPressTest extends TestCase
     /**
      * @dataProvider resourceNameClassProvider
      */
+    #[DataProvider('resourceNameClassProvider')]
     public function testInstantiatesCorrectResourceClassPropertyAccess($name, $class): void
     {
         $this->assertInstanceOf($class, $this->wordpress->$name);
@@ -65,6 +68,7 @@ class WordPressTest extends TestCase
     /**
      * @dataProvider resourceNameClassProvider
      */
+    #[DataProvider('resourceNameClassProvider')]
     public function testInstantiatedResourceInstanceOfResourceMethodAccess($name): void
     {
         $this->assertInstanceOf(Resource::class, $this->wordpress->$name());
@@ -73,6 +77,7 @@ class WordPressTest extends TestCase
     /**
      * @dataProvider resourceNameClassProvider
      */
+    #[DataProvider('resourceNameClassProvider')]
     public function testInstantiatedResourceInstanceOfResourcePropertyAccess($name): void
     {
         $this->assertInstanceOf(Resource::class, $this->wordpress->$name);
@@ -81,6 +86,7 @@ class WordPressTest extends TestCase
     /**
      * @dataProvider resourceNameClassProvider
      */
+    #[DataProvider('resourceNameClassProvider')]
     public function testInstantiatesNewResourceClassMethodAccess($name): void
     {
         $this->assertNotSame($this->wordpress->$name(), $this->wordpress->$name());
@@ -89,11 +95,15 @@ class WordPressTest extends TestCase
     /**
      * @dataProvider resourceNameClassProvider
      */
+    #[DataProvider('resourceNameClassProvider')]
     public function testInstantiatesNewResourceClassPropertyAccess($name): void
     {
         $this->assertNotSame($this->wordpress->$name, $this->wordpress->$name);
     }
 
+    /**
+     * @dataProvider resourceNameClassProvider
+     */
     public function testIncorrectResourceNameThrowsException(): void
     {
         $this->expectException(InvalidArgumentException::class);
@@ -104,6 +114,7 @@ class WordPressTest extends TestCase
     /**
      * @dataProvider resourceNameClassProvider
      */
+    #[DataProvider('resourceNameClassProvider')]
     public function testResourceGetCallsCorrectEndpoint($name): void
     {
         Http::fake();
@@ -118,6 +129,7 @@ class WordPressTest extends TestCase
     /**
      * @dataProvider resourceNameClassProvider
      */
+    #[DataProvider('resourceNameClassProvider')]
     public function testResourceFindCallsCorrectEndpoint($name): void
     {
         Http::fake();
@@ -131,7 +143,7 @@ class WordPressTest extends TestCase
         });
     }
 
-    public function resourceNameClassProvider(): array
+    public static function resourceNameClassProvider(): array
     {
         return [
             ['categories', Categories::class, ],
