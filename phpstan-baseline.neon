@@ -1,0 +1,66 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\BaseWordPress\\:\\:__call\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/BaseWordPress.php
+
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\Client\\:\\:send\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Client.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Client.php
+
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\Resources\\\\Query\\:\\:globalParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Resources/Query.php
+
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\Resources\\\\Query\\:\\:parameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Resources/Query.php
+
+		-
+			message: "#^Property RickWest\\\\WordPress\\\\Resources\\\\Query\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Resources/Query.php
+
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\Resources\\\\Resource\\:\\:fields\\(\\) has parameter \\$fields with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Resources/Resource.php
+
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\Resources\\\\Resource\\:\\:find\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Resources/Resource.php
+
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\Resources\\\\Resource\\:\\:find\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Resources/Resource.php
+
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\Resources\\\\Resource\\:\\:get\\(\\) has parameter \\$fields with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Resources/Resource.php
+
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\Resources\\\\Resource\\:\\:get\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Resources/Resource.php
+
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\Resources\\\\Resource\\:\\:listResponse\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Resources/Resource.php
+
+		-
+			message: "#^Method RickWest\\\\WordPress\\\\Resources\\\\Resource\\:\\:send\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Resources/Resource.php
