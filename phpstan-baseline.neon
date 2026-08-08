@@ -11,7 +11,7 @@ parameters:
 			path: src/Client.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function strval expects bool\\|float\\|GMP\\|int\\|resource\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Client.php
 
